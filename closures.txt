@@ -1,0 +1,105 @@
+import Foundation
+var names = ["Gloria", "Suzanne", "Piper", "Tiffany", "Aisha"]
+var reversedNames = names.sorted(by: { (s1: String, s2: String) -> Bool in
+    return s1 < s2
+})
+print(reversedNames)
+reversedNames = names.sorted(by: { (s1: String, s2: String) -> Bool in
+    return s1 > s2
+})
+print(reversedNames)
+reversedNames = names.sorted(by: { (s1: String, s2: String) -> Bool in
+    return s1.count < s2.count
+})
+print(reversedNames)
+
+class Person {
+
+    func getPersonName() -> String {
+        print("Enter name:")
+        var name = "Walter"
+        if let inp0 = readLine() {
+            if inp0 != "" {
+                name = inp0
+            }
+        }
+        return name
+    }
+}
+var nick = Person()
+var str : [String] = ["Jesse", "Mike"]
+var choice = "y"
+while (choice != "n") {
+    print("Enter new name? (y/n):")
+    let inp = readLine()
+    if inp == "y" {
+        let outp = nick.getPersonName()
+        str.append(outp)
+        print(str)
+    }
+    if inp != "y" {
+        choice = "n"
+    }
+}
+print("finished")
+
+var dictionary = [10:"Gus"]
+print(dictionary)
+
+func getNum() {
+    print("Enter new number:")
+    if let inp1 = readLine() {
+        print("Enter new value:")
+        if let inp2 = readLine() {
+            let dict = [inp1:inp2]
+            print(dict)
+        }
+    }
+}
+
+choice = "y"
+while (choice != "n") {
+    print("Enter new dictionary? (y/n)")
+    let inp = readLine()
+    if inp == "y" {
+        getNum()
+    }
+    if inp != "y" {
+        choice = "n"
+    }
+}
+
+func getNS() {
+    choice = "y"
+    var numb = [1]
+    var strin = ["str"]
+    while (choice != "n") {
+        print("Enter new array elements? (y/n)")
+        let inp = readLine()
+        if inp == "y" {
+            print("Enter new number:")
+            if let inp1 = Int(readLine()!) {
+                numb.append(inp1)
+            }
+            else {
+                    numb.append(0)
+            }
+            print("Enter new string:")
+            if let inp2 = readLine() {
+                if inp2 != "" {
+                    strin.append(inp2)
+                }
+                else {
+                    strin.append("default")
+                }
+            }
+        }
+        if inp != "y" {
+            choice = "n"
+        }
+    }
+    print(numb, terminator: " ")
+    print(separator: "")
+    print(strin, terminator: " ")
+}
+getNS()
